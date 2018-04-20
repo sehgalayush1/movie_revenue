@@ -23,22 +23,22 @@ class getData:
         self.frame = self.frame.dropna()
     
     def normalize_data(self):
-        # Fetch 4 features
-        # self.frame = self.frame.filter(
-        #     ['screens', 'budget', 'worldwide_first_weekend', 'worldwide_first_week', 'worldwide_gross'])
+        # Fetch features
+        self.frame = self.frame.filter(
+            ['screens', 'footfall', 'budget', 'first_day', 'first_weekend', 'first_week', 'india_gross'])
 
         # Fetch 8 features
-        self.frame = self.frame.filter(
-            ['screens', 'footfall', 'budget', 'first_day', 'first_weekend', 'first_week', 'worldwide_first_weekend',
-                'worldwide_first_week', 'worldwide_gross']
-        )
+        # self.frame = self.frame.filter(
+        #     ['screens', 'footfall', 'budget', 'first_day', 'first_weekend', 'first_week', 'worldwide_first_weekend',
+        #         'worldwide_first_week', 'worldwide_gross']
+        # )
 
         # Optimize data
         self.optimize_data()
 
         # Seprate labels from features
-        self.labels = self.frame['worldwide_gross']
-        self.frame = self.frame.drop(['worldwide_gross'], axis=1)
+        self.labels = self.frame['india_gross']
+        self.frame = self.frame.drop(['india_gross'], axis=1)
         
         # Normalize frame
         self.frame_norm = (self.frame - self.frame.mean()) / (self.frame.max() - self.frame.min())

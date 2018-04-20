@@ -1,0 +1,9 @@
+Results
+
+SVM = 80% - 85%
+
+Decision Tree = 92% - 98%
+
+Random Forest = 94% - 97%
+                For revenue generated in India, accuracy = 96% - 97%
+
