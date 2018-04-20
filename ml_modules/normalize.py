@@ -6,7 +6,7 @@ import pandas as pd
 class getData:
     def __init__(self, file):
         self.frame = pd.read_csv(file)
-    
+
     def optimize_data(self):
         def remove_comma(val):
             if type(val) is str:
@@ -21,7 +21,7 @@ class getData:
 
         # Remove rows with missing data
         self.frame = self.frame.dropna()
-    
+
     def normalize_data(self):
         # Fetch features
         self.frame = self.frame.filter(
@@ -39,13 +39,13 @@ class getData:
         # Seprate labels from features
         self.labels = self.frame['india_gross']
         self.frame = self.frame.drop(['india_gross'], axis=1)
-        
+
         # Normalize frame
         self.frame_norm = (self.frame - self.frame.mean()) / (self.frame.max() - self.frame.min())
 
         # Assign labes based on values
         def classify_labels(val):
-            if val <= 10000000:
+            if val <= 1000000000:
                 return 0
             elif val <= 1000000000:
                 return 1
@@ -53,8 +53,7 @@ class getData:
                 return 2
             else:
                 return 3
-        
+
         self.labels = self.labels.apply(classify_labels)
 
         return self.frame_norm, self.labels
-

@@ -2,7 +2,7 @@
 
 import numpy as np
 import pandas as pd
-from sklearn import linear_model
+from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
@@ -22,7 +22,7 @@ features_train, features_test, labels_train, labels_test = train_test_split(feat
 
 # Train and predict
 # clf = svm.SVC()
-clf = linear_model.LinearRegression()
+clf = GaussianNB()
 clf.fit(features_train, labels_train)
 
 prediction = clf.predict(features_test)
