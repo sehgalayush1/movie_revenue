@@ -25,7 +25,11 @@ class getData:
     def normalize_data(self):
         # Fetch features
         self.frame = self.frame.filter(
-            ['screens', 'footfall', 'budget', 'first_day', 'first_weekend', 'first_week', 'india_gross'])
+            ['screens', 'footfall', 'budget', 'first_day', 'first_weekend', 'first_week',
+                'actors_movieCount', 'actors_ratingSum', 'actors_normalizedMovieRank',
+                'actors_googleHits', 'actors_normalizedGoogleRank', 'actors_normalizedRating',
+                'directors_ratingSum', 'directors_normalizedMovieRank', 'directors_googleHits',
+                'directors_normalizedGoogleRank', 'directors_normalizedRating', 'india_gross'])
 
         # Fetch 8 features
         # self.frame = self.frame.filter(

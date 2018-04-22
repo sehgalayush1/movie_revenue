@@ -106,3 +106,6 @@ ENV/
 
 # Extra Data
 extractor/data/
+
+# virtualenv
+fproject/
