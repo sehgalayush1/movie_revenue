@@ -22,7 +22,7 @@ class RandomForestTrainer():
 
         # self.features_train, self.features_test, self.labels_train, self.labels_test = train_test_split(self.features, self.labels)
 
-        self.clf = RandomForestClassifier()
+        self.clf = RandomForestClassifier(class_weight='balanced')
         self.clf.fit(self.features, self.labels)
 
         joblib.dump(self.clf, 'models/random_forest.pkl')
@@ -59,7 +59,7 @@ def run(file_path):
 
     features_train, features_test, labels_train, labels_test = train_test_split(features, labels)
 
-    clf = RandomForestClassifier()
+    clf = RandomForestClassifier(class_weight='balanced')
     clf.fit(features_train, labels_train)
 
     predection = clf.predict(features_test)

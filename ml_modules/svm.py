@@ -21,8 +21,8 @@ class SVMTrainer():
 
         # self.features_train, self.features_test, self.labels_train, self.labels_test = train_test_split(self.features, self.labels)
 
-        self.clf_svc = svm.SVC()
-        self.clf_linear_svc =  svm.LinearSVC()
+        self.clf_svc = svm.SVC(class_weight='balanced')
+        self.clf_linear_svc =  svm.LinearSVC(class_weight='balanced')
         self.clf_svc.fit(self.features, self.labels)
         self.clf_linear_svc.fit(self.features, self.labels)
 
@@ -64,8 +64,8 @@ def run(file_path):
     features_train, features_test, labels_train, labels_test = train_test_split(features, labels)
 
     # Train and predict
-    # clf = svm.SVC()
-    clf = svm.LinearSVC()
+    clf = svm.SVC(class_weight='balanced')
+    # clf = svm.LinearSVC()
     clf.fit(features_train, labels_train)
 
     prediction = clf.predict(features_test)

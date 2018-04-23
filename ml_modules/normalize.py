@@ -3,6 +3,8 @@
 import numpy as np
 import pandas as pd
 
+import matplotlib.pyplot as plt
+
 class getData:
     def __init__(self, file):
         self.frame = pd.read_csv(file)
@@ -61,3 +63,22 @@ class getData:
         self.labels = self.labels.apply(classify_labels)
 
         return self.frame_norm, self.labels
+    
+
+    def plot_graphs(self):
+        self.frame = self.frame.filter(['screens', 'budget', 'footfall', 'first_day',
+            'first_weekend', 'first_week', 'worldwide_first_weekend', 'worldwide_first_week',
+            'worldwide_gross', 'india_gross'])
+        self.optimize_data()
+        # screens = self.frame['screens'].tolist()
+        # budget = self.frame['budget'].tolist()
+        # footfall = self.frame['footfall'].tolist()
+        # first_day = self.frame['first_day'].tolist()
+        # india_gross = self.frame['india_gross'].tolist()
+
+        # Plot graphs
+        self.frame = self.frame.cumsum()
+        self.frame.plot(x='budget', y=['first_day',
+            'first_weekend', 'first_week', 'worldwide_first_weekend', 'worldwide_first_week',
+            'worldwide_gross', 'india_gross'], kind='pie', title='Budgets vs Earnings')
+        plt.show()

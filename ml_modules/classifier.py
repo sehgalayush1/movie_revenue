@@ -2,6 +2,7 @@
 
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from decison_tree import DecisionTreeTrainer, DecisionTreePredictor
 from random_forest import RandomForestTrainer, RandomForestPredictor
@@ -41,3 +42,13 @@ print("SVM Linear SVC => ", svm_linear_svc_score, "/", len(decision_tree_labels)
 
 naive_bayes_score = len([i for i, j in zip(naive_bayes_output, naive_bayes_labels) if i == j])
 print("Naive Bayes => ", naive_bayes_score, "/", len(naive_bayes_labels))
+
+
+# Plot Graphs
+models = ['Decision Tree', 'Random Forest', 'SVM_SVC', 'SVM_Linear_SVC', 'Naive Bayes']
+values = [decision_tree_score, random_forest_score, svm_svc_score, svm_linear_svc_score, naive_bayes_score]
+
+plt.bar(models, values)
+plt.title('Model Scores')
+plt.ylabel('Out of 3 movies')
+plt.show()
