@@ -10,7 +10,7 @@ from svm import SVMTrainer, SVMPredictor
 from naive_bayes import NaiveBayesTrainer, NaiveBayesPredictor
 
 training_file = 'data/main_data.csv'
-testing_file = 'data/test_data.csv'
+testing_file = 'data/final_test_data.csv'
 
 # Decision Tree
 DecisionTreeTrainer(training_file).train()
@@ -50,5 +50,5 @@ values = [decision_tree_score, random_forest_score, svm_svc_score, svm_linear_sv
 
 plt.bar(models, values)
 plt.title('Model Scores')
-plt.ylabel('Out of 3 movies')
+plt.ylabel('Out of 9 movies')
 plt.show()
