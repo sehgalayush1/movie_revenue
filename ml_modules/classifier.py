@@ -53,7 +53,7 @@ print("Logistic Regression => ", logistic_score, "/", len(logistic_labels))
 
 # Plot Graphs
 models = ['Decision Tree', 'Random Forest', 'SVM_SVC', 'SVM_Linear_SVC', 'Naive Bayes', 'Logistic Regression']
-values = [decision_tree_score, random_forest_score, svm_svc_score, svm_linear_svc_score, naive_bayes_score, logi]
+values = [decision_tree_score, random_forest_score, svm_svc_score, svm_linear_svc_score, naive_bayes_score, logistic_score]
 
 plt.bar(models, values)
 plt.title('Model Scores')
